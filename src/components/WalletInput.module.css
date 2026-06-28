@@ -1,0 +1,141 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.inputWrap:focus-within {
+  border-color: rgba(0, 255, 136, 0.5);
+  box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.08);
+}
+
+.prefix {
+  padding: 0 0 0 16px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.input {
+  flex: 1;
+  padding: 14px 12px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.input::placeholder {
+  color: var(--text-dim);
+}
+
+.inputError {
+  color: var(--red);
+}
+
+.scanBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  transition: all 0.2s;
+  white-space: nowrap;
+  margin: 4px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.scanBtn:hover:not(:disabled) {
+  background: #00e07a;
+  transform: translateY(-1px);
+}
+
+.scanBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error {
+  font-size: 12px;
+  color: var(--red);
+  padding: 0 4px;
+}
+
+/* Quick test */
+.quick {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.quickLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.quickBtns {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.quickBtn {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+
+.quickBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
