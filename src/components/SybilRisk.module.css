@@ -1,12 +1,10 @@
 .wrap {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--r-md);
   padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  position: relative;
+  gap: 8px;
 }
 
 .top {
@@ -16,23 +14,22 @@
 }
 
 .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+  width: 5px;
+  height: 5px;
   background: var(--accent);
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  50% { opacity: 0; }
 }
 
 .label {
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 9px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
   font-family: var(--font-mono);
   flex: 1;
@@ -40,11 +37,10 @@
 
 .badge {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
   padding: 2px 6px;
-  border-radius: 2px;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   border: 1px solid;
 }
@@ -59,7 +55,7 @@
 .reason {
   position: relative;
   padding-left: 10px;
-  font-size: 10px;
+  font-size: 9px;
   color: var(--text-muted);
   line-height: 1.5;
   font-family: var(--font-mono);
@@ -70,4 +66,5 @@
   position: absolute;
   left: 0;
   color: var(--accent);
+  font-weight: 700;
 }

@@ -1,17 +1,14 @@
 .wrap {
   background: var(--surface);
   border: 1px solid var(--border-bright);
-  border-radius: var(--r-md);
-  padding: 18px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
   position: relative;
-  overflow: hidden;
 }
 
-/* Corner accent */
 .wrap::before {
   content: '';
   position: absolute;
@@ -24,8 +21,8 @@
 
 .circle {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
 }
 
 .inner {
@@ -39,32 +36,32 @@
 
 .score {
   font-family: var(--font-mono);
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .max {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-muted);
 }
 
 .label {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 500;
   color: var(--text);
-  margin-top: 2px;
   font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
 }
 
 .sub {
   font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--text-muted);
+  font-size: 8px;
+  color: var(--text-dim);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
 }

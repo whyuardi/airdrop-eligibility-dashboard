@@ -1,24 +1,21 @@
-/* ─── Global CSS — DropHunter OSINT Terminal ─── */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+/* ─── DropHunter v3 — Hyper-Brutalist OSINT ─── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap');
 
 :root {
-  /* Terminal OSINT palette — warm amber, no crypto green */
-  --bg: #0d0b09;
-  --bg-2: #161310;
-  --surface: #1c1915;
-  --surface-2: #252018;
-  --border: #2d2820;
-  --border-bright: #4a3f30;
+  /* Ultra-dark warm palette */
+  --bg: #09080a;
+  --surface: #130f12;
+  --surface-2: #1c1619;
+  --border: #2a2228;
+  --border-bright: #4a3a48;
 
-  /* Accent: warm amber/orange */
-  --accent: #ff8c00;
-  --accent-dim: rgba(255, 140, 0, 0.12);
-  --accent-glow: 0 0 24px rgba(255, 140, 0, 0.25);
-  --accent-2: #ff6b35; /* secondary orange-red */
+  /* Accent: burnt orange */
+  --accent: #f97316;
+  --accent-dim: rgba(249, 115, 22, 0.1);
+  --accent-line: #fb923c;
 
-  /* Secondary: cyan for data highlights */
-  --cyan: #38bdf8;
-  --cyan-dim: rgba(56, 189, 248, 0.1);
+  /* Data: electric blue */
+  --data: #38bdf8;
 
   /* Status */
   --green: #4ade80;
@@ -26,18 +23,16 @@
   --red: #f87171;
 
   /* Text */
-  --text: #e8e0d4;
-  --text-muted: #7a7060;
-  --text-dim: #4a4438;
+  --text: #ede8e4;
+  --text-muted: #6b5f6a;
+  --text-dim: #3d323c;
 
-  /* Font stack */
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --font-sans: 'DM Sans', sans-serif;
+  /* Font */
+  --font-mono: 'DM Mono', monospace;
+  --font-display: 'Syne', sans-serif;
 
-  /* Radius — brutalist: minimal rounding */
-  --r-sm: 3px;
-  --r-md: 6px;
-  --r-lg: 10px;
+  /* Radius: NONE — brutalist */
+  --r: 0;
 }
 
 *, *::before, *::after {
@@ -46,55 +41,34 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
-/* Scanline overlay — CRT effect */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.06) 2px,
-    rgba(0, 0, 0, 0.06) 4px
-  );
-  pointer-events: none;
-  z-index: 9999;
-}
-
-/* Noise texture */
+/* Grain overlay */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 0;
+  z-index: 9999;
+  opacity: 0.6;
 }
 
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
 input, textarea { font: inherit; }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: var(--surface); }
-::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
-
-/* Selection */
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); }
 ::selection { background: var(--accent); color: var(--bg); }
