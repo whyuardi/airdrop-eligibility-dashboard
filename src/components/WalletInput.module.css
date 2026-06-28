@@ -7,13 +7,21 @@
 .inputWrap {
   display: flex;
   align-items: stretch;
-  border: 1px solid var(--border-bright);
-  background: var(--bg);
+  border: 2px solid var(--border);
+  background: var(--surface);
   transition: border-color 0.1s;
 }
 
-.inputWrap:focus-within {
-  border-color: var(--accent);
+.inputWrap:focus-within { border-color: var(--accent); }
+
+.prefix {
+  padding: 12px 14px;
+  background: var(--surface-alt);
+  border-right: 2px solid var(--border-light);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  user-select: none;
 }
 
 .input {
@@ -23,64 +31,31 @@
   border: none;
   outline: none;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text);
-  letter-spacing: 0.02em;
 }
 
-.input::placeholder {
-  color: var(--text-dim);
-}
+.input::placeholder { color: var(--text-faint); }
 
-.inputError {
-  color: var(--red);
-}
-
-/* Scan button — raw, no radius */
 .scanBtn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 18px;
-  background: var(--accent);
+  padding: 12px 20px;
+  background: var(--text);
   color: var(--bg);
-  font-weight: 700;
-  font-size: 12px;
   font-family: var(--font-mono);
-  text-transform: lowercase;
-  letter-spacing: 0.04em;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-left: 2px solid var(--border);
   transition: background 0.1s;
   white-space: nowrap;
-  border-left: 1px solid var(--border-bright);
-  flex-shrink: 0;
 }
 
-.scanBtn:hover:not(:disabled) {
-  background: var(--accent-line);
-}
-
-.scanBtn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.spinner {
-  width: 10px;
-  height: 10px;
-  border: 1.5px solid rgba(9, 8, 10, 0.3);
-  border-top-color: var(--bg);
-  animation: spin 0.7s linear infinite;
-  display: inline-block;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+.scanBtn:hover:not(:disabled) { background: var(--accent); }
+.scanBtn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .error {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--red);
   font-family: var(--font-mono);
-  text-transform: lowercase;
-  letter-spacing: 0.04em;
 }

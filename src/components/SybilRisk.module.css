@@ -1,6 +1,6 @@
 .wrap {
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -10,61 +10,46 @@
 .top {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.dot {
-  width: 5px;
-  height: 5px;
-  background: var(--accent);
-  animation: pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  justify-content: space-between;
 }
 
 .label {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  flex: 1;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
 }
 
-.badge {
-  font-family: var(--font-mono);
-  font-size: 8px;
+.level {
+  font-size: 11px;
   font-weight: 700;
-  padding: 2px 6px;
-  letter-spacing: 0.06em;
   text-transform: uppercase;
-  border: 1px solid;
+  letter-spacing: 0.08em;
+  font-family: var(--font-display);
 }
+
+.low { color: var(--green); }
+.medium { color: var(--amber); }
+.high { color: var(--red); }
 
 .reasons {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
 }
 
 .reason {
-  position: relative;
-  padding-left: 10px;
-  font-size: 9px;
+  font-size: 11px;
   color: var(--text-muted);
-  line-height: 1.5;
-  font-family: var(--font-mono);
+  padding-left: 12px;
+  position: relative;
 }
 
 .reason::before {
-  content: '>';
+  content: '—';
   position: absolute;
   left: 0;
-  color: var(--accent);
-  font-weight: 700;
+  color: var(--text-faint);
 }

@@ -44,10 +44,10 @@ export default function Home() {
       {/* Header */}
       <header className={styles.header}>
         <div className={styles.logo}>
-          <div className={styles.logoIcon}>⊕</div>
+          <div className={styles.logoIcon}>+</div>
           <div>
             <span className={styles.logoName}>DropHunter</span>
-            <span className={styles.logoTag}>v1.0 · 10 chains</span>
+            <span className={styles.logoTag}>v1.0 — 10 chains</span>
           </div>
         </div>
 
@@ -74,7 +74,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className={styles.githubLink}
           >
-            github →
+            github
           </a>
         </div>
       </header>
@@ -82,14 +82,14 @@ export default function Home() {
       <main className={styles.main}>
         {activeTab === 'single' && (
           <div>
-            {/* Hero — 38/62 split */}
+            {/* Hero — editorial split */}
             <div className={styles.heroSection}>
-              {/* LEFT: oversized type + stats */}
+              {/* LEFT: oversized type */}
               <div className={styles.heroLeft}>
                 <div className={styles.heroMeta}>
                   <div className={styles.heroBadge}>
                     <span className={styles.heroBadgeDot} />
-                    active · 10 chains · no api key
+                    active — 10 chains — no api key
                   </div>
                   <h1 className={styles.heroTitle}>
                     <span>Airdrop</span>
@@ -118,50 +118,42 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* RIGHT: terminal scan panel */}
+              {/* RIGHT: input + results */}
               <div className={styles.heroRight}>
-                <div className={styles.scanPanel}>
-                  <div className={styles.scanPanelHeader}>
-                    <span className={styles.scanDot} />
-                    <span className={styles.scanDot} />
-                    <span className={styles.scanDot} />
-                    <span className={styles.scanPanelTitle}>./scan --wallet</span>
-                  </div>
-                  <div className={styles.inputSection}>
-                    <WalletInput onScan={handleScan} isScanning={isScanning} />
+                <div className={styles.scanSection}>
+                  <div className={styles.scanLabel}>Wallet Address</div>
+                  <WalletInput onScan={handleScan} isScanning={isScanning} />
 
-                    {isScanning && (
-                      <div className={styles.progressWrap}>
-                        <div className={styles.progressBar}>
-                          <div className={styles.progressFill} style={{ width: `${scanProgress}%` }} />
-                        </div>
-                        <span className={styles.progressLabel}>scanning... {scanProgress}%</span>
+                  {isScanning && (
+                    <div className={styles.progressWrap}>
+                      <div className={styles.progressBar}>
+                        <div className={styles.progressFill} style={{ width: `${scanProgress}%` }} />
                       </div>
-                    )}
+                      <span className={styles.progressLabel}>scanning... {scanProgress}%</span>
+                    </div>
+                  )}
 
-                    <div className={styles.quickWrap}>
-                      <span className={styles.quickLabel}>quick test wallets:</span>
-                      <div className={styles.quickBtns}>
-                        {SAMPLE.map(addr => (
-                          <button
-                            key={addr}
-                            className={styles.quickBtn}
-                            onClick={() => handleScan(addr)}
-                          >
-                            {addr.slice(2, 8)}...{addr.slice(-4)}
-                          </button>
-                        ))}
-                      </div>
+                  <div className={styles.quickWrap}>
+                    <div className={styles.quickBtns}>
+                      {SAMPLE.map(addr => (
+                        <button
+                          key={addr}
+                          className={styles.quickBtn}
+                          onClick={() => handleScan(addr)}
+                        >
+                          {addr.slice(2, 8)}...{addr.slice(-4)}
+                        </button>
+                      ))}
                     </div>
                   </div>
                 </div>
 
-                {/* Benchmark — only when no results */}
+                {/* Benchmark */}
                 {!latestResult && !isScanning && (
                   <div className={styles.benchmarkSection}>
                     <div className={styles.benchmarkHeader}>
                       <span className={styles.benchmarkDot} />
-                      <span className={styles.benchmarkTitle}>// performance comparison (ms)</span>
+                      <span className={styles.benchmarkTitle}>performance comparison (ms)</span>
                     </div>
                     <div className={styles.benchmarkTable}>
                       <div className={styles.benchmarkRowHeader}>
@@ -230,6 +222,7 @@ export default function Home() {
 
         {activeTab === 'batch' && <BatchPanel />}
         {activeTab === 'calendar' && <CalendarPanel />}
+
         {activeTab === 'history' && (
           <div className={styles.historyPanel}>
             <ExportPanel />
@@ -240,7 +233,7 @@ export default function Home() {
                   <span
                     className={styles.historyScore}
                     style={{
-                      color: r.totalScore >= 60 ? 'var(--data)' : r.totalScore >= 30 ? 'var(--amber)' : 'var(--red)'
+                      color: r.totalScore >= 60 ? 'var(--green)' : r.totalScore >= 30 ? 'var(--amber)' : 'var(--red)'
                     }}
                   >
                     {r.totalScore}/100
@@ -255,8 +248,8 @@ export default function Home() {
             ))}
             {results.length === 0 && (
               <div className={styles.emptyState}>
-                <div className={styles.emptyIcon}>{'>'}_</div>
-                <p>no scans in history. paste a wallet to begin.</p>
+                <div className={styles.emptyIcon}>no scans yet</div>
+                <p>paste a wallet address above to begin scanning</p>
               </div>
             )}
           </div>
