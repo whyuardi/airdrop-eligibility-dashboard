@@ -1,50 +1,51 @@
 .wrap {
-  padding-top: 64px;
-  max-width: 680px;
-  margin: 0 auto;
-  width: 100%;
+  padding-top: 40px;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .title {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--text);
   font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .sub {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-muted);
+  font-family: var(--font-mono);
 }
 
 .textarea {
   width: 100%;
   padding: 14px;
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 1px solid var(--border-bright);
+  border-radius: var(--r-sm);
   color: var(--text);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.5;
   resize: vertical;
-  min-height: 140px;
-  transition: border-color 0.2s;
+  min-height: 120px;
+  transition: border-color 0.15s;
 }
 
 .textarea:focus {
   outline: none;
-  border-color: rgba(0, 255, 136, 0.5);
-  box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.08);
+  border-color: var(--accent);
+  box-shadow: var(--accent-glow);
 }
 
 .textarea::placeholder {
@@ -60,32 +61,38 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
+  padding: 10px 20px;
   background: var(--accent);
-  color: #000;
+  color: var(--bg);
   font-weight: 700;
-  font-size: 14px;
-  border-radius: 10px;
-  transition: all 0.2s;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--accent);
+  transition: all 0.15s;
 }
 
 .scanBtn:hover:not(:disabled) {
-  background: #00e07a;
+  background: #ffa020;
   transform: translateY(-1px);
+  box-shadow: var(--accent-glow);
 }
 
 .scanBtn:disabled {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
 }
 
 .spinner {
-  width: 14px;
-  height: 14px;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-top-color: #000;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(13, 11, 9, 0.3);
+  border-top-color: var(--bg);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
+  display: inline-block;
 }
 
 @keyframes spin {
@@ -95,35 +102,35 @@
 .progress {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .progressBar {
-  height: 3px;
-  background: var(--surface-2);
-  border-radius: 2px;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
   overflow: hidden;
 }
 
 .progressFill {
   height: 100%;
   background: var(--accent);
-  border-radius: 2px;
+  border-radius: 1px;
   transition: width 0.3s;
   box-shadow: var(--accent-glow);
 }
 
 .progressLabel {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-muted);
 }
 
 /* Results table */
 .resultsTable {
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  border: 1px solid var(--border-bright);
+  border-radius: var(--r-md);
   overflow: hidden;
 }
 
@@ -131,13 +138,13 @@
   display: grid;
   grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
   gap: 8px;
-  padding: 10px 14px;
+  padding: 8px 14px;
   background: var(--surface-2);
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-muted);
+  font-size: 9px;
+  color: var(--text-dim);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   border-bottom: 1px solid var(--border);
 }
 
@@ -145,16 +152,16 @@
   display: grid;
   grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr;
   gap: 8px;
-  padding: 10px 14px;
+  padding: 8px 14px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text);
-  border-bottom: 1px solid rgba(30, 30, 42, 0.5);
-  transition: background 0.15s;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
 }
 
 .tableRow:last-child { border-bottom: none; }
 .tableRow:hover { background: var(--surface-2); }
 
-.addr { font-weight: 500; }
+.addr { font-weight: 600; }
 .score { font-weight: 700; }

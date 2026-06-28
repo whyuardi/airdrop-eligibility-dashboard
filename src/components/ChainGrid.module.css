@@ -1,23 +1,22 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
 }
 
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--r-sm);
   padding: 14px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: all 0.2s;
+  transition: border-color 0.15s;
 }
 
 .card:hover {
-  border-color: rgba(0, 255, 136, 0.2);
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.05);
+  border-color: var(--accent);
 }
 
 .header {
@@ -33,41 +32,48 @@
 }
 
 .chainIcon {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
 }
 
 .chainName {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--text);
+  font-family: var(--font-mono);
 }
 
 .chainLabel {
   font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--text-muted);
+  font-size: 8px;
+  color: var(--text-dim);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 .scoreBadge {
   font-family: var(--font-mono);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
-  padding: 4px 8px;
-  border-radius: 6px;
+  padding: 3px 8px;
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
 }
 
 .body {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .row {
@@ -77,33 +83,35 @@
 }
 
 .label {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-muted);
   font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .value {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--text);
   font-family: var(--font-mono);
 }
 
 .statusBar {
-  height: 3px;
-  background: var(--surface-2);
-  border-radius: 2px;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
   overflow: hidden;
 }
 
 .statusFill {
   height: 100%;
-  border-radius: 2px;
+  border-radius: 1px;
   transition: width 0.8s ease;
 }
 
 .statusLabel {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
   color: var(--text-muted);
 }
@@ -111,17 +119,19 @@
 .protocols {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 3px;
 }
 
 .protocolTag {
-  padding: 2px 6px;
+  padding: 2px 5px;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  border-radius: 4px;
-  font-size: 9px;
-  color: var(--text-muted);
+  border-radius: 2px;
+  font-size: 8px;
+  color: var(--text-dim);
   font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 @media (max-width: 768px) {
